@@ -280,7 +280,7 @@ pub fn register_std_impls(type_registry: &mut TypeRegistry) {
     add::<TypeId>(type_registry);
 
     add::<std::time::Duration>(type_registry);
-    add_of_with_many::<Instant>(type_registry, many_unimplemented::<Instant>);
+    // add_of_with_many::<Instant>(type_registry, many_unimplemented::<Instant>);
 }
 
 /// Register [`InspectorEguiImpl`]s for [`bevy_math`]/`glam` types

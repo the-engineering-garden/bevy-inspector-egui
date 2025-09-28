@@ -302,26 +302,26 @@ impl InspectorPrimitive for Duration {
     }
 }
 
-impl InspectorPrimitive for Instant {
-    fn ui(
-        &mut self,
-        ui: &mut egui::Ui,
-        options: &dyn Any,
-        id: egui::Id,
-        env: InspectorUi<'_, '_>,
-    ) -> bool {
-        self.ui_readonly(ui, options, id, env);
-        false
-    }
-
-    fn ui_readonly(&self, ui: &mut egui::Ui, _: &dyn Any, _: egui::Id, _: InspectorUi<'_, '_>) {
-        let mut secs = self.elapsed().as_secs_f32();
-        ui.horizontal(|ui| {
-            ui.add_enabled(false, DragValue::new(&mut secs));
-            ui.label("seconds ago");
-        });
-    }
-}
+// impl InspectorPrimitive for Instant {
+//     fn ui(
+//         &mut self,
+//         ui: &mut egui::Ui,
+//         options: &dyn Any,
+//         id: egui::Id,
+//         env: InspectorUi<'_, '_>,
+//     ) -> bool {
+//         self.ui_readonly(ui, options, id, env);
+//         false
+//     }
+//
+//     fn ui_readonly(&self, ui: &mut egui::Ui, _: &dyn Any, _: egui::Id, _: InspectorUi<'_, '_>) {
+//         let mut secs = self.elapsed().as_secs_f32();
+//         ui.horizontal(|ui| {
+//             ui.add_enabled(false, DragValue::new(&mut secs));
+//             ui.label("seconds ago");
+//         });
+//     }
+// }
 
 impl<T: Reflect + TypePath + egui::emath::Numeric + InspectorOptionsType> InspectorPrimitive
     for std::ops::Range<T>
